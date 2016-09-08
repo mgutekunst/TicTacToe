@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToe.Wpf"
+        xmlns:lib="clr-namespace:TicTactoe.Lib;assembly=TicTactoe.Lib"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <local:FieldControl>
+            <local:FieldControl.GameField>
+                <lib:GameField/>
+            </local:FieldControl.GameField>
+        </local:FieldControl>
     </Grid>
 </Window>

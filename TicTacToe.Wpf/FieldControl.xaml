@@ -1,0 +1,38 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TicTacToe.Wpf"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="TicTacToe.Wpf.FieldControl"
+             x:Name="root"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="150" MouseLeftButtonUp="FieldControl_OnMouseLeftButtonUp">
+    <Grid x:Name="grid" Background="Green">
+        <i:Interaction.Behaviors>
+            <ei:DataStateBehavior Binding="{Binding GameField.State, ElementName=root, Mode=OneWay}" Value="X" TrueState="X"/>
+            <ei:DataStateBehavior Binding="{Binding GameField.State, ElementName=root, Mode=OneWay}" Value="O" TrueState="O"/>
+        </i:Interaction.Behaviors>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="FieldStates">
+                <VisualState x:Name="Unchecked"/>
+                <VisualState x:Name="X">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="O">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <TextBlock x:Name="textBlock1" Text="X" Foreground="White" FontSize="150" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+        <TextBlock x:Name="textBlock" Text="O" Foreground="White" FontSize="150" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+    </Grid>
+</UserControl>
