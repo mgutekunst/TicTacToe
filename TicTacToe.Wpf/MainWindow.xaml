@@ -8,10 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <local:FieldControl>
-            <local:FieldControl.GameField>
-                <lib:GameField/>
-            </local:FieldControl.GameField>
-        </local:FieldControl>
+        <local:FieldControl GameField="{Binding Board[0]}"/>
     </Grid>
 </Window>
