@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace TicTactoe.Lib
+namespace TicTacToe.Lib.Models
 {
     public abstract class NotifyBaseClass : INotifyPropertyChanged
     {
