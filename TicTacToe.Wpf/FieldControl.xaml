@@ -8,7 +8,7 @@
              x:Name="root"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="150" MouseLeftButtonUp="FieldControl_OnMouseLeftButtonUp">
-    <Grid x:Name="grid" Background="Green">
+    <Grid x:Name="grid" Background="Green" Margin="1">
         <i:Interaction.Behaviors>
             <ei:DataStateBehavior Binding="{Binding GameField.State, ElementName=root, Mode=OneWay}" Value="X" TrueState="X"/>
             <ei:DataStateBehavior Binding="{Binding GameField.State, ElementName=root, Mode=OneWay}" Value="O" TrueState="O"/>

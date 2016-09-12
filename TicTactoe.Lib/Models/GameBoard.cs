@@ -1,65 +1,27 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 
 namespace TicTacToe.Lib.Models
 {
-    public class GameBoard : IList
+    public class GameBoard : IEnumerable
     {
-        public IEnumerator GetEnumerator()
+        private GameField[,] _fields;
+        public GameBoard()
         {
-            throw new NotImplementedException();
+            _fields = new GameField[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    _fields[i,j] = new GameField();
+                }
+            }
         }
+        public IEnumerator GetEnumerator() => _fields.GetEnumerator();
 
-        public void CopyTo(Array array, int index)
-        {
-            throw new NotImplementedException();
-        }
+        public object this[int index] =>  _fields[(index/3), index%3]; 
 
-        public int Count { get; }
-        public bool IsSynchronized { get; }
-        public object SyncRoot { get; }
-        public int Add(object value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Clear()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Contains(object value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int IndexOf(object value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Insert(int index, object value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(object value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveAt(int index)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsFixedSize { get; }
-        public bool IsReadOnly { get; }
-
-        public object this[int index]
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
+        public object this[int i, int j] => _fields[i, j];
     }
 }

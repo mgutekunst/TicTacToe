@@ -4,10 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToe.Wpf"
-        xmlns:lib="clr-namespace:TicTactoe.Lib;assembly=TicTactoe.Lib"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <local:FieldControl GameField="{Binding Board[0]}"/>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+        <local:FieldControl Grid.Row="0" Grid.Column="0" GameField="{Binding Board[0]}"/>
+        <local:FieldControl Grid.Row="0" Grid.Column="1" GameField="{Binding Board[1]}"/>
+        <local:FieldControl Grid.Row="0" Grid.Column="2" GameField="{Binding Board[2]}"/>
+
+        <local:FieldControl Grid.Row="1" Grid.Column="0" GameField="{Binding Board[3]}"/>
+        <local:FieldControl Grid.Row="1" Grid.Column="1" GameField="{Binding Board[4]}"/>
+        <local:FieldControl Grid.Row="1" Grid.Column="2" GameField="{Binding Board[5]}"/>
+
+        <local:FieldControl Grid.Row="2" Grid.Column="0" GameField="{Binding Board[6]}"/>
+        <local:FieldControl Grid.Row="2" Grid.Column="1" GameField="{Binding Board[7]}"/>
+        <local:FieldControl Grid.Row="2" Grid.Column="2" GameField="{Binding Board[8]}"/>
     </Grid>
 </Window>

@@ -6,13 +6,12 @@ namespace TicTactoe.Lib.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private GameField[,] _board = new GameField[3,3];
-        public GameField[,] Board
+        private GameBoard _board = new GameBoard();
+        public GameBoard Board
         {
             get { return _board; }
             set { _board = value; RaisePropertyChanged(); }
         }
-        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)

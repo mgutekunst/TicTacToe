@@ -23,8 +23,8 @@ namespace TicTacToe.Wpf
     {
         public MainWindow()
         {
-            InitializeComponent();
             DataContext = new MainViewModel();
+            InitializeComponent();
         }
     }
 }
