@@ -12,6 +12,7 @@
         <i:Interaction.Behaviors>
             <ei:DataStateBehavior Binding="{Binding GameField.State, ElementName=root, Mode=OneWay}" Value="X" TrueState="X"/>
             <ei:DataStateBehavior Binding="{Binding GameField.State, ElementName=root, Mode=OneWay}" Value="O" TrueState="O"/>
+            <ei:DataStateBehavior Binding="{Binding GameField.State, ElementName=root, Mode=OneWay}" Value="Unchecked" TrueState="Unchecked"/>
         </i:Interaction.Behaviors>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="FieldStates">

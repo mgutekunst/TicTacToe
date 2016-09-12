@@ -14,7 +14,7 @@ namespace TicTacToe.Lib.Tests.ViewModels
         public void SetUp()
         {
             // Setup for Test
-            _cut = new MainViewModel();
+            _cut = new MainViewModel(null);
         }
 
         [TearDown]

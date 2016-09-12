@@ -1,23 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using TicTacToe.Lib.Models;
+using TicTacToe.Wpf.Utils;
 
 namespace TicTactoe.Lib.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        private readonly IMessageDialog _messageDialog;
         private GameBoard _board = new GameBoard();
 
-        public MainViewModel()
+        public MainViewModel(IMessageDialog messageDialog)
         {
+            _messageDialog = messageDialog;
             MoveMadeCommand = new Command(moveMade);
         }
 
         private void moveMade()
         {
+            FieldState winner;
+            if (_board.IsSolved(out winner))
+            {
+                _messageDialog.Show($"Praise Player {winner} who won this match");
+                Board = new GameBoard();
+                return;
+            }
+
             CurrentPlayer = CurrentPlayer == FieldState.O ? FieldState.X : FieldState.O;
         }
 
