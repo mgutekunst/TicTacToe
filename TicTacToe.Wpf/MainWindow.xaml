@@ -1,32 +1,87 @@
-﻿<Window x:Class="TicTacToe.Wpf.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToe.Wpf"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="TicTacToe.Wpf.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-    </Grid.RowDefinitions>
-        <local:FieldControl Grid.Row="0" Grid.Column="0" GameField="{Binding Board[0]}"/>
-        <local:FieldControl Grid.Row="0" Grid.Column="1" GameField="{Binding Board[1]}"/>
-        <local:FieldControl Grid.Row="0" Grid.Column="2" GameField="{Binding Board[2]}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <local:FieldControl Grid.Row="0" Grid.Column="0" GameField="{Binding Board[0]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
+        <local:FieldControl Grid.Row="0" Grid.Column="1" GameField="{Binding Board[1]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
+        <local:FieldControl Grid.Row="0" Grid.Column="2" GameField="{Binding Board[2]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
 
-        <local:FieldControl Grid.Row="1" Grid.Column="0" GameField="{Binding Board[3]}"/>
-        <local:FieldControl Grid.Row="1" Grid.Column="1" GameField="{Binding Board[4]}"/>
-        <local:FieldControl Grid.Row="1" Grid.Column="2" GameField="{Binding Board[5]}"/>
+        <local:FieldControl Grid.Row="1" Grid.Column="0" GameField="{Binding Board[3]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
+        <local:FieldControl Grid.Row="1" Grid.Column="1" GameField="{Binding Board[4]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
+        <local:FieldControl Grid.Row="1" Grid.Column="2" GameField="{Binding Board[5]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
 
-        <local:FieldControl Grid.Row="2" Grid.Column="0" GameField="{Binding Board[6]}"/>
-        <local:FieldControl Grid.Row="2" Grid.Column="1" GameField="{Binding Board[7]}"/>
-        <local:FieldControl Grid.Row="2" Grid.Column="2" GameField="{Binding Board[8]}"/>
+        <local:FieldControl Grid.Row="2" Grid.Column="0" GameField="{Binding Board[6]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
+        <local:FieldControl Grid.Row="2" Grid.Column="1" GameField="{Binding Board[7]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
+        <local:FieldControl Grid.Row="2" Grid.Column="2" GameField="{Binding Board[8]}" CurState="{Binding CurrentPlayer}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="FieldChanged">
+                    <i:InvokeCommandAction Command="{Binding MoveMadeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </local:FieldControl>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using TicTacToe.Lib.Models;
@@ -11,6 +12,8 @@ namespace TicTacToe.Wpf
     public partial class FieldControl : UserControl
     {
 
+        public event EventHandler<EventArgs> FieldChanged;
+
         public static readonly DependencyProperty GameFieldProperty = DependencyProperty.Register("GameField", typeof(GameField), typeof(FieldControl),
             new PropertyMetadata(default(GameField)));
 
@@ -20,6 +23,16 @@ namespace TicTacToe.Wpf
             set { SetValue(GameFieldProperty, value); }
         }
 
+        public static readonly DependencyProperty CurStateProperty = DependencyProperty.Register("CurState", typeof(FieldState), typeof(FieldControl),
+            new PropertyMetadata(default(FieldState)));
+
+        public FieldState CurState
+        {
+            get { return (FieldState) GetValue(CurStateProperty); }
+            set { SetValue(CurStateProperty, value); }
+        }
+
+
         public FieldControl()
         {
             InitializeComponent();
@@ -27,7 +40,8 @@ namespace TicTacToe.Wpf
 
         private void FieldControl_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            GameField.SetState(FieldState.X);
+            GameField.SetState(CurState);
+            FieldChanged?.Invoke(this, new EventArgs());
         }
     }
 }
