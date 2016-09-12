@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace TicTacToe.Lib.Models
 {
-    public class GameBoard : IEnumerable
+    public class GameBoard : IEnumerable<GameField>
     {
         private GameField[,] _fields;
         public GameBoard()
@@ -18,10 +19,18 @@ namespace TicTacToe.Lib.Models
                 }
             }
         }
-        public IEnumerator GetEnumerator() => _fields.GetEnumerator();
 
-        public object this[int index] =>  _fields[(index/3), index%3]; 
+        public GameField this[int index] =>  _fields[(index/3), index%3]; 
 
-        public object this[int i, int j] => _fields[i, j];
+        public GameField this[int i, int j] => _fields[i, j];
+        public IEnumerator<GameField> GetEnumerator()
+        {
+            return _fields.Cast<GameField>().GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

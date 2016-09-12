@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\GameBoard.cs" />
+    <Compile Include="Models\GameBoardExtensions.cs" />
     <Compile Include="Models\GameField.cs" />
     <Compile Include="Models\NotifyBaseClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
