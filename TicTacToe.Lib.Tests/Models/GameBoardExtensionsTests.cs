@@ -41,7 +41,7 @@ namespace TicTacToe.Lib.Tests.Models
         [TestCase(0,FieldState.O)]
         [TestCase(1,FieldState.O)]
         [TestCase(2,FieldState.O)]
-        public void IsSolved_WinnerInRow_trueAndX(int r, FieldState winningPlayer)
+        public void IsSolved_WinnerInRow(int r, FieldState winningPlayer)
         {
             var board = new GameBoard();
             board[r,0].SetState(winningPlayer);
@@ -61,12 +61,44 @@ namespace TicTacToe.Lib.Tests.Models
         [TestCase(0,FieldState.O)]
         [TestCase(1,FieldState.O)]
         [TestCase(2,FieldState.O)]
-        public void IsSolved_WinnerInColumn_trueAndX(int c, FieldState winningPlayer)
+        public void IsSolved_WinnerInColumn(int c, FieldState winningPlayer)
         {
             var board = new GameBoard();
             board[0,c].SetState(winningPlayer);
             board[1,c].SetState(winningPlayer);
-            board[1,c].SetState(winningPlayer);
+            board[2,c].SetState(winningPlayer);
+            FieldState winner;
+
+            var result = board.IsSolved(out winner);
+
+            Assert.That(result,Is.True);
+            Assert.That(winner,Is.EqualTo(winningPlayer));
+        }
+
+        [TestCase(FieldState.X)]
+        [TestCase(FieldState.O)]
+        public void IsSolved_WinnerIsDiagonalLeftToRight(FieldState winningPlayer)
+        {
+            var board = new GameBoard();
+            board[0,0].SetState(winningPlayer);
+            board[1,1].SetState(winningPlayer);
+            board[2,2].SetState(winningPlayer);
+            FieldState winner;
+
+            var result = board.IsSolved(out winner);
+
+            Assert.That(result,Is.True);
+            Assert.That(winner,Is.EqualTo(winningPlayer));
+        }
+
+        [TestCase(FieldState.X)]
+        [TestCase(FieldState.O)]
+        public void IsSolved_WinnerIsDiagonalRightToLeft(FieldState winningPlayer)
+        {
+            var board = new GameBoard();
+            board[0,2].SetState(winningPlayer);
+            board[1,1].SetState(winningPlayer);
+            board[2,0].SetState(winningPlayer);
             FieldState winner;
 
             var result = board.IsSolved(out winner);
